@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            font-family: Arial, sans-serif;
+            padding: 0;
+            box-sizing: border-box;
+            background: #f4f4f4;
+            display:flex;
+            flex-direction: column;
+        }
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            padding: 0.5em 1em;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.7em;
+            margin-bottom: 1em;
+        }
+        .logo-text {
+            font-size: 2em;
+            font-weight: bold;
+            color: #222;
+        }
+        img {
+            height: 50px;
+            margin: 0;
+            border-radius: 20px;
+        }
+        nav {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            position: relative;
+            gap: 0;
+        }
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            
+            margin-bottom: 0.5em;
+        }
+        .hamburger span {
+            height: 4px;
+            width: 20px;
+            background: #333;
+            margin: 4px 0;
+            border-radius: 2px;
+            display: block;
+        }
+        nav ul {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            background: #fff;
+            max-height: 0;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: max-height 0.3s ease;
+            position: absolute;
+            top: 3.5em;
+            left: 0;
+            z-index: 1;
+        }
+        nav ul.open {
+            max-height: 400px;
+        }
+        nav li {
+            list-style: none;
+            margin: 1em 0;
+            text-align: center;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #f4f4f4;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            background-color: #919191;
+            border-radius: 5px;
+        }
+        .book {
+            background-color: #14304e;
+            color: rgb(10, 10, 10);
+            border: none;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin: 1em auto 0 auto;
+            display: block;
+            width: 60%;
+        }
+        .book:hover {
+            background-color: #919191;
+            color: #f4f4f4;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .home{
+            color:#919191;
+            margin-left: 1em;
+
+        }
+        
+        .intro{
+            margin-left:1em;
+        }
+        h2{
+           font-size: 2.45em;
+        }
+        span{
+            color:#f24c23;
+        }
+        .constworkers{
+            width: 90%;
+            height: auto;
+            border-radius: 20px;
+            margin-top: 1em;
+            object-fit: contain;
+        }
+       .sub{
+        color:#333;
+        text-align: center;
+        align-items: center;
+        font-size: 1em;
+        padding:1em 2.5em;
+        margin: 0;
+       }
+       .features{
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+        justify-content:space-evenly;
+        font-size: 2em;
+        font-weight: 700;
+        margin-bottom:0;
+       }
+       .building{
+            width: 90%;
+            height: auto;
+            border-radius: 20px;
+            margin-top: 1em;
+            object-fit: contain;
+             margin-left: 1em;
+       }
+       .mission text{
+        margin-left:  6em;
+        font-size: 2.7em;
+       }
+       .mission li{
+        list-style-type:none;
+             
+    }
+    .mission li::before{
+        content: "✔";
+        color:green;
+        margin-right: 0.5em;
+        margin-left: -1em;
+    }
+    .mission h3{
+        margin-left: 1.4em;
+    }
+    .mission p{
+        margin-left: 1.4em;
+    }
+    .laptop{
+        width: 90%;
+            height: auto;
+            border-radius: 20px;
+            margin-top: 1em;
+            object-fit: contain;
+             margin-left: 1em;
+    }
+    .vision h3{
+        margin-left: 1.2em;
+    }
+    .vision p{
+        margin-left: 1.2em;
+    }
+
+    .vision li{
+        list-style-type:none;
+    }
+    .vision li::before{
+        content: "✔";
+        color:green;
+        margin-left: -1.3em;}
+    .looking{
+         width: 90%;
+            height: auto;
+            border-radius: 20px;
+            margin-top: 1em;
+            object-fit: contain;
+            margin-left: 1em;
+       
+    }
+    .work{
+         color:#333;
+        text-align: center;
+        align-items: center;
+        font-size: 1.5em;
+        margin: 0;
+    }
+    .work p{
+         font-size: 1em
+    }
+    
+        @media (min-width: 601px) {
+         
+
+
+            header {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0.5em 2em;
+            }
+            .logo {
+                margin-bottom: 0;
+            }
+            nav {
+                flex-direction: row;
+                align-items: center;
+                position: static;
+                gap: 1em;
+            }
+            .hamburger {
+                display: none;
+            }
+            nav ul {
+                display: flex;
+                flex-direction: row;
+                position: static;
+                max-height: none;
+                width: auto;
+                background: none;
+                box-shadow: none;
+                overflow: visible;
+            }
+            nav li {
+                margin: 0 1.5em;
+            }
+            .book {
+                margin: 0 0 0 1em;
+                width: 100%;
+               
+            }
+               .intro{
+                display:flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 2em;
+                margin: 1em;
+            }
+            .intro p{
+                margin-left: -66em;
+                margin-top: -1em;
+                padding-right:29em;
+            }
+            h2{
+              margin-left: 1em;
+              margin-bottom: 0;
+              
+             
+                
+                
+            }
+            .constworkers{
+                width: 40%;
+                margin-left: 39em;
+                margin-top: -5em;
+            }
+            .sub{
+                font-size: 1.2em;
+                padding: 1em 5em;
+        }
+        .building{
+             width: 35%;
+        }
+        .mission{
+             display:flex;
+             flex-direction: row;
+             align-items: center;
+             gap: 2em;
+             margin: 1em;
+        }
+        .mission-text{
+            
+            margin-left: 7em;
+            margin-bottom: 0;
+
+        }
+      .laptop{
+        width: 40%;
+        margin-left: 39em;
+      }
+      .vision h3{
+        margin-top: -15em;
+        margin-left: -.1em;
+       ;
+      }
+      .vision{
+        margin-left: em;
+      }
+      .vision-text{
+     
+            margin-bottom: 0;
+            padding-right: 29em;
+      }
+      .vision li{
+        margin-left: .5em;
+}
+      .vision h3{
+        margin-left: 1.7em;
+    }
+    .vision p{
+        margin-left: 1.7em;
+    }
+    .looking{
+        width:40%;
+    }
+    .history-text{
+         margin-top: 5em;
+         margin-bottom: 0;
+         font-size: .98em;
+
+    }
+    .work p{
+        padding-left:7em;
+        padding-right:7em ;
+        margin-top: 0;
+        padding-top: 0;
+    }
+        }
+            </style>
+        
+</head>
+<body>
+   <header>
+    
+    <div class="logo">
+        <button class="hamburger" aria-label="Open navigation" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <img src="./download.jpg" alt="a construction helmet">
+        <span class="logo-text">Construct.org</span>
+    </div>
+    <nav>
+        
+        <ul class="nav-list" id="navList">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">Bing</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><button class="book">Book now</button></li>
+        </ul>
+    </nav>
+   </header> 
+</header>
+<script>
+function toggleMenu() {
+    const navList = document.getElementById('navList');
+    navList.classList.toggle("open");
+}
+</script>
+<main>
+    <h3 class="home">
+        [Home/<span>About]</span>
+    </h3>
+    <h2>Crafting Excellence Together</h2>
+    <div class="intro" >
+        
+    <img class="constworkers" src="./construction workers.jpg">
+    <p style="color:#585757;font-size: 1em;">At Construct we believe in the power of collaboration to archieve outstanding results.With a beam of skilled professionals and a commitment to quality, we work hand-in-hand with our clients to bring thier ideas to life. Together, we create structures and solution that stand the test of time</p>
+    </div>
+    
+    <div class="aboutus">
+        <h4 class="sub">At Construct we are committed to revolutionizing the construction industry with innovative, sustainable, and cost-effective solutions. With state-of-the-art technology,<span style="color:#585757">skilled expertise, and customer-centric approaches to bring visions to life.</span></h4>
+        <ul class="features">
+            <li>150+</li>
+             <li>100+</li>
+              <li>200+</li>
+               <li>30</li>
+         </ul>
+         <ul class="features" style="font-size: 0.9em;font-weight: 100;margin-top: 0;gap:2em;">
+            <li>Complete Projects</li>
+             <li>Team members</li>
+              <li>Client Reviews</li>
+               <li>Winning Award</li>
+         </ul>
+
+    </div>
+    <div class="mission">
+        <img class="building" src="./building plan.jpg">
+        <div class="mission-text">
+        <h3>Our Mission</h3>
+        <p>To provide exceptional construction services that exceed clients expectations through innovtion,quality craftsmanship, and a commitment to sustainablity. We aim to build lasting relationship and create spaces that enhance communities. We aim to create spaces that inspire and improve the lives of our clients and commmunities.Through precisions, expertise, and a customer-centric approach, we strive to exceed expectations in every projects. Our dedication to integrity and excellence drives us to build lasting relationships and a legacy o trust.</p>
+        <ul>
+            <li> Featuring Sustainable Growth and Green Development</li>
+             <li>Innovating for a Sustainable Future</li>
+              <li>customer-Centric Approach</li>
+                <li>Building Stronger Communities</li>
+        </ul>
+        </div>
+    </div>
+    <img class="laptop" src="./looking at laptop.jpg">
+    <div class="vision">
+        <div class="vision-text">
+        <h3>Our Vision</h3>
+        <p>At Construct, our vision is to redefine the future of construction through innovtion, sustainablity and excellence. We aim to create structures that not inspire but also constitute to the well-being o communities and the environment. By embracing cutting-edge technology and eco-friendly practices, we strive to lead the industry toward a greater, smarter future. Our focus is on delivering value, quality, and longivity in every project we undertake. Together, we envision a world where construction empowers progress and transforms lives.</p>
+        <ul>
+            <li>Inspiring Modern Architecture</li>
+             <li>Pioneering Sustainable Construction</li>
+              
+        </ul>
+        </div>
+    </div>
+     <div class="mission">
+        <img class="looking" src="./men looking.jpg">
+        <div class="history-text">
+        <h3>Our History</h3>
+        <p>Founded on a commitment to quality and innovtion, Construct began as a small team with a big vision. Over the years, we have grown into a trusted name in the construction industry, delivering exceptional projects that stand the test of time. Our journey is marked by milestones of success, driven by passion and a dedication to excellence. From humble beginnings to industry leaders, we remain focused on building strong relationships and impactful spaces. Our history is the foundations of our future, inspiring us to keep raising the bar in construction</p>
+        <ul>
+            <li>Humble Beginnings</li>
+             <li>Milestones and Achievements</li>
+              <li>Building a legacy of the trust</li>
+                <li>Shaping the Future, Rooted in the Past</li>
+        </ul>
+        </div>
+        </div>
+        <div class="work">
+            <h3>How We do Work</h3>
+            <p>We follow a collaborative and transparent process, ensuring clear communication and expert execution at every stage of the project.
+                From initial concept to final delivery.
+            </p>
+        </div>
+
+        <div class="video-section" style="margin: 2em auto; max-width: 800px; width: 95%;">
+            <h3 style="text-align:center;">Watch Our Construction Process</h3>
+            <video width="100%" controls poster="">
+                <source src="myvideo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+</main>
+</body>
+</html>
