@@ -141,15 +141,15 @@
             margin-top: 1em;
             object-fit: contain;
         }
-       .sub{
-        color:#333;
-        text-align: center;
-        align-items: center;
-        font-size: 1em;
-        padding:1em 2.5em;
-        margin: 0;
-       }
-       .features{
+        .sub-about{
+            color:#333;
+            text-align:center;
+            align-items:center;
+            font-size: 1em;
+            padding:1em 2.5em;
+            margin: 0;
+        }
+         .features{
         display: flex;
         flex-direction: row;
         list-style-type: none;
@@ -225,9 +225,153 @@
         margin: 0;
     }
     .work p{
-         font-size: 1em
+         font-size: .99em
+    }
+  
+    .sub{
+        color:#333;
+        text-align: left;
+        align-items: flex-start;
+        font-size: 1em;
+        padding:1em 2.5em;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+    .sub button{
+        background-color: orange;
+        color: white;
+        border: none;
+        padding: 0.5em 1em;
+        border-radius: 15px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        margin-top: 1em;
+        align-self: flex-start;
+    }
+    .sub button:hover {
+        background-color: #646362;
+    }
+     video{
+        display: flex;
+        width:70%;
+       
+       
+       border-radius: 2em;
     }
     
+    .slideshow-container img {
+    width: 7%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+    @media (min-width: 601px) {
+        .sub {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .sub p {
+            margin: 0;
+            flex: 1;
+            padding-right: 2em;
+        }
+        .sub button {
+            margin: 0;
+            white-space: nowrap;
+           
+        }
+    }
+       
+    .crafting h3{
+        font-size: 1.7em;
+        font-weight:700;
+        margin-bottom: 0;
+         padding-left: .4em;
+    }
+    .crafting p{
+        
+        padding-left: 1em;
+    }
+    .sub{
+        padding: 0;
+       
+    }
+    .sub p{
+         font-size: .9em;
+         padding-left: em;
+    }
+    
+    .slideshow-container {
+  max-width: 300px;
+  padding-top: 1em;
+  position: relative;
+  margin: auto;
+}
+
+
+.mySlides {
+  display: none;
+}
+
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
         @media (min-width: 601px) {
          
 
@@ -295,7 +439,7 @@
             }
             .sub{
                 font-size: 1.2em;
-                padding: 1em 5em;
+                padding: 1em em;
         }
         .building{
              width: 35%;
@@ -348,13 +492,28 @@
          font-size: .98em;
 
     }
+    .work{
+         color:#333;
+        text-align: center;
+        align-items: center;
+        font-size: 1.5em;
+        margin: 0;
+    }
     .work p{
         padding-left:7em;
         padding-right:7em ;
         margin-top: 0;
         padding-top: 0;
     }
+    video{
+        display: block;
+        margin-left: 6em;
+        width:60%;
         }
+       
+        
+    
+    }
             </style>
         
 </head>
@@ -401,7 +560,7 @@ function toggleMenu() {
     </div>
     
     <div class="aboutus">
-        <h4 class="sub">At Construct we are committed to revolutionizing the construction industry with innovative, sustainable, and cost-effective solutions. With state-of-the-art technology,<span style="color:#585757">skilled expertise, and customer-centric approaches to bring visions to life.</span></h4>
+        <h4 class="sub-about">At Construct we are committed to revolutionizing the construction industry with innovative, sustainable, and cost-effective solutions. With state-of-the-art technology,<span style="color:#585757">skilled expertise, and customer-centric approaches to bring visions to life.</span></h4>
         <ul class="features">
             <li>150+</li>
              <li>100+</li>
@@ -459,15 +618,101 @@ function toggleMenu() {
             <p>We follow a collaborative and transparent process, ensuring clear communication and expert execution at every stage of the project.
                 From initial concept to final delivery.
             </p>
-        </div>
-
-        <div class="video-section" style="margin: 2em auto; max-width: 800px; width: 95%;">
-            <h3 style="text-align:center;">Watch Our Construction Process</h3>
-            <video width="100%" controls poster="">
-                <source src="myvideo.mp4" type="video/mp4">
+             <div class="video-section" style="margin: 2em auto; max-width: 800px; width: 95%;">
+           
+            <video controls loop src="./videoblocks-an-aerial-view-of-a-busy-construction-site-on-a-dirty-puddly-ground-it-is-filled-with-construction-cranes-multi-storey-building-frames-and-metal-beams-there-is-a-misty-urbans.mp4" width="400">
                 Your browser does not support the video tag.
             </video>
         </div>
+        </div>
+        <div class="crafting">
+            <div>
+                <h3>Crafting Excellence as a Team</h3>
+                <div class="sub">
+            <p>Our success is built on the dedication and expertise of our team, who work together to bring innovative ideas and exceptional craftsmanship to every project. Together, we turn vision into reality. </p>
+            <button>Explore all</button>
+                </div>
+
+             </div>
+            
+        </div>
+    <div class="slideshow-container">
+
+
+  <div class="mySlides fade">
+    <div class="numbertext"></div>
+    <img src="./slideshow one.jpg" style="width:100%">
+    <div class="text"><h3 style="color: #ca4b4b; margin: 0;">Jenny Wilson</h3>
+       <p> Marketing Coordinator</p>
+    </div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext"></div>
+    <img src="./slideshow two.jpg" style="width:100%">
+    <div class="text"><h3 style="color: #ca4b4b;">Darrell Steward</h3> Darrell Steward
+        <p> Marketing Coordinator</p>
+       
+    </div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext"></div>
+    <img src="./slideshow three.jpg" style="width:100%">
+    <div class="text"> <h3 style="color: #ca4b4b;"> Darlene Robertson</h3>
+        <p>Marketing Coordinator</p>
+    </div>
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext"></div>
+    <img src="./slideshow four.jpg" style="width:100%">
+    <div class="text"><h3 style="color: #ca4b4b;">Jane Cooper</h3> 
+    <p>Marketing Coordinator</p>
+    </div>
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+<script>let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}</script>
+    <div class="work">
+            <h3>Why Say Our Customers</h3>
+            <p>Our clients trust us for our reliability, attention to detail, and dedication to delivering projects on time and within budget. Hear rom those who have experienced the quality and professionalism that sets us apart in the construction industry.
+            </p>
 </main>
 </body>
 </html>
