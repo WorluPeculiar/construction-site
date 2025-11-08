@@ -4,571 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body{
-            margin: 0;
-            font-family: Arial, sans-serif;
-            padding: 0;
-            box-sizing: border-box;
-            background: #f4f4f4;
-            display:flex;
-            flex-direction: column;
-        }
-        header {
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-            padding: 0.5em 1em;
-            background: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.7em;
-            margin-bottom: 1em;
-        }
-        .logo-text {
-            font-size: 2em;
-            font-weight: bold;
-            color: #222;
-            text-align: center;
-           
-        }
-        img {
-            height: 50px;
-            margin: 0;
-            border-radius: 20px;
-        }
-        nav {
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-            position: relative;
-            gap: 0;
-        }
-        .hamburger {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            
-            margin-bottom: 0.5em;
-        }
-        .hamburger span {
-            height: 4px;
-            width: 20px;
-            background: #333;
-            margin: 4px 0;
-            border-radius: 2px;
-            display: block;
-        }
-        nav ul {
-            display: flex;
-            flex-direction: column;
-            padding: 0;
-            margin: 0;
-            width: 100%;
-            background: #fff;
-            max-height: 0;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            transition: max-height 0.3s ease;
-            position: absolute;
-            top: 3.5em;
-            left: 0;
-            z-index: 1;
-        }
-        nav ul.open {
-            max-height: 400px;
-        }
-        nav li {
-            list-style: none;
-            margin: 1em 0;
-            text-align: center;
-        }
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-        nav a:hover {
-            color: #f4f4f4;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            background-color: #919191;
-            border-radius: 5px;
-        }
-        .book {
-            background-color: #14304e;
-            color: rgb(10, 10, 10);
-            border: none;
-            padding: 0.5em 1em;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-            margin: 1em auto 0 auto;
-            display: block;
-            width: 60%;
-        }
-        .book:hover {
-            background-color: #919191;
-            color: #f4f4f4;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-        .home{
-            color:#919191;
-            margin-left: 1em;
-
-        }
-        
-        .intro{
-            margin-left:1em;
-        }
-        h2{
-           font-size: 2.45em;
-        }
-        span{
-            color:#f24c23;
-        }
-        .constworkers{
-            width: 90%;
-            height: auto;
-            border-radius: 20px;
-            margin-top: 1em;
-            object-fit: contain;
-        }
-        .sub-about{
-            color:#333;
-            text-align:center;
-            align-items:center;
-            font-size: 1em;
-            padding:1em 2.5em;
-            margin: 0;
-        }
-         .features{
-        display: flex;
-        flex-direction: row;
-        list-style-type: none;
-        justify-content:space-evenly;
-        font-size: 2em;
-        font-weight: 700;
-        margin-bottom:0;
-       }
-                
-                .stats-grid{
-                    display: grid;
-                    grid-template-columns: repeat(4, 1fr);
-                    gap: 0.5rem 1.5rem;
-                    align-items:start;
-                    padding: 1em;
-                    width: 100%;
-                    box-sizing: border-box;
-                    text-align: center;
-                    
-                }
-                .stats-grid .stat{
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 0.5em 0.25em;
-                    
-                }
-                .stats-grid .number{
-                    font-size: 2em;
-                    font-weight: 800;
-                    color: #14304e;
-                    margin-bottom: 0.25em;
-                    
-                }
-                .stats-grid .label{
-                    font-size: 0.95em;
-                    color: #333;
-                    font-weight: 600;
-                    
-                }
-       .building{
-            width: 90%;
-            height: auto;
-            border-radius: 20px;
-            margin-top: 1em;
-            object-fit: contain;
-             margin-left: 1em;
-       }
-    .mission-text{
-        padding: 0;
-    }
-       .mission li{
-        list-style-type:none;
-             
-    }
-    .mission li::before{
-        content: "✔";
-        color:green;
-        margin-right: 0.5em;
-        margin-left: -1em;
-    }
-    .mission h3{
-        margin-left: 1em;
-          font-size: 1.2em;
-        font-weight:900;
-    }
-    .mission p{
-        margin-left: 1.4em;
-    }
-    .laptop{
-        width: 90%;
-            height: auto;
-            border-radius: 20px;
-            margin-top: 1em;
-            object-fit: contain;
-             margin-left: 1em;
-    }
-    .vision h3{
-        margin-left: 1.2em;
-           font-size: 1.2em;
-        font-weight:900;
-    }
-    .vision p{
-        margin-left: 1.2em;
-    }
-
-    .vision li{
-        list-style-type:none;
-    }
-    .vision li::before{
-        content: "✔";
-        color:green;
-        margin-left: -1.3em;}
-    .looking{
-         width: 90%;
-            height: auto;
-            border-radius: 20px;
-            margin-top: 1em;
-            object-fit: contain;
-            margin-left: 1em;
-       
-    }
-    .work{
-         color:#333;
-        text-align: center;
-        align-items: center;
-        font-size: 1.5em;
-        margin: 0;
-    }
-    .work p{
-         font-size: .99em
-    }
-  
-    .sub{
-        color:#333;
-        text-align: left;
-        align-items: flex-start;
-        font-size: 1em;
-        padding:1em 2.5em;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-    }
-    .sub button{
-        background-color: orange;
-        color: white;
-        border: none;
-        padding: 0.5em 1em;
-        border-radius: 15px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-        margin-top: 1em;
-        align-self: flex-start;
-    }
-    .sub button:hover {
-        background-color: #646362;
-    }
-    .video-section{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .video-section video{
-        width: 100%;
-        max-width: 800px;
-        display: block;
-        border-radius: 2em;
-    }
-    
-    .slideshow-container img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 20px;
-}
-     
-       
-    .crafting h3{
-        font-size: 1.7em;
-        font-weight:700;
-        margin-bottom: 0;
-         padding-left: .4em;
-    }
-    .crafting p{
-        
-        padding-left: 1em;
-    }
-    .sub{
-        padding: 0;
-       
-    }
-    .sub p{
-        font-size: .9em;
-        padding-left: 1em;
-    }
-    
-    .slideshow-container {
-  max-width: 300px;
-  padding-top: 1em;
-  position: relative;
-  margin: auto;
-}
-
-
-.mySlides {
-  display: none;
-}
-
-
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-.container{
-    display: grid;
-}
-.item1{
-    grid-row:1/2;
-    grid-column: 1/2;
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-        @media (min-width: 601px) {
-            body{
-                max-width: 1024px;
-                margin: 0 auto;
-            }
-            header {
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-                padding: 0.5em 2em;
-            }
-            .logo {
-                margin-bottom: 0;
-            }
-            nav {
-                flex-direction: row;
-                align-items: center;
-                position: static;
-                gap: 1em;
-            }
-            .hamburger {
-                display: none;
-            }
-            nav ul {
-                display: flex;
-                flex-direction: row;
-                position: static;
-                max-height: none;
-                width: auto;
-                background: none;
-                box-shadow: none;
-                overflow: visible;
-            }
-            nav li {
-                margin: 0 1.5em;
-            }
-            .book {
-                margin: 0 0 0 1em;
-                width: 100%;
-               
-            }
-               .intro{
-                display:flex;
-                flex-direction: row;
-                align-items: center;
-                gap: 2em;
-                margin: 1em;
-            }
-            .intro p{
-                margin-left: -56em;
-                margin-top: -1em;
-                padding-right:29em;
-            }
-            h2{
-              margin-left: 1em;
-              margin-bottom: 0;
-              
-             
-                
-                
-            }
-            .constworkers{
-                width:27%;
-                margin-left: 39em;
-                margin-top: -5em;
-            }
-            .sub{
-        font-size: 1.2em;
-        padding: 1em;
-        }
-        .building{
-             width: 35%;
-        }
-        .mission{
-             display:flex;
-             flex-direction: row;
-             align-items: center;
-             gap: 2em;
-             margin: -.9em;
-        }
-        .mission-text{
-            font-size: 1.2em;
-            margin-left: 7em;
-            margin-bottom: 0;
-
-        }
-      .laptop{
-        width: 27%;
-        margin-left: 39em;
-      }
-      .vision h3{
-        margin-top: -15em;
-        margin-left: -.1em;
-       ;
-      }
-            .vision{
-                margin-left: 1em;
-               
-            }
-      .vision-text{
-            margin-top: 7em;
-            margin-bottom: 0;
-            padding-right: 29em;
-      }
-      .vision li{
-        margin-left: .5em;
-}
-      .vision h3{
-        font-size: 1.2em;
-        font-weight: 900;
-        margin-left: 1.7em;
-    }
-    .vision p{
-        margin-left: 1.7em;
-    }
-    .looking{
-        width:40%;
-    }
-    .history-text{
-         margin-top: 5em;
-         margin-bottom: 0;
-         font-size: .98em;
-
-    }
-    .work{
-         color:#333;
-        text-align: center;
-        align-items: center;
-        font-size: 1.5em;
-        margin: 0;
-    }
-    .work p{
-        padding-left:7em;
-        padding-right:7em ;
-        margin-top: 0;
-        padding-top: 0;
-    }
-    .video-section video{
-        display: block;
-        margin: 0 auto;
-        width:60%;
-        max-width: 800px;
-        }
-       
-         
-        .sub {
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .sub p {
-            margin: 0;
-            flex: 1;
-            padding-right: 2em;
-        }
-        .sub button {
-            margin: 0;
-            white-space: nowrap;
-           
-        }
- 
-    
-    }
-            </style>
+    <link rel="stylesheet" href="css/style.css" />
         
 </head>
 <body>
@@ -580,7 +16,7 @@
             <span></span>
             <span></span>
         </button>
-        <img src="./download.jpg" alt="a construction helmet">
+        <img src="./assets/images/download.jpg" alt="a construction helmet">
         <span class="logo-text">Construct.org</span>
     </div>
     <nav>
@@ -595,12 +31,7 @@
         </ul>
     </nav>
    </header>
-<script>
-function toggleMenu() {
-    const navList = document.getElementById('navList');
-    navList.classList.toggle("open");
-}
-</script>
+
 <main>
     <h3 class="home">
         [Home/<span>About</span>]
@@ -608,7 +39,7 @@ function toggleMenu() {
     <h2>Crafting Excellence Together</h2>
     <div class="intro" >
         
-    <img class="constworkers" src="./construction workers.jpg">
+    <img class="constworkers" src="./assets/images/construction workers.jpg">
     <p style="color:#585757;font-size: 1em;">At Construct we believe in the power of collaboration to archieve outstanding results.With a beam of skilled professionals and a commitment to quality, we work hand-in-hand with our clients to bring thier ideas to life. Together, we create structures and solution that stand the test of time</p>
     </div>
     
@@ -635,7 +66,7 @@ function toggleMenu() {
 
     </div>
     <div class="mission">
-        <img class="building" src="./building plan.jpg">
+        <img class="building" src="./assets/images/building plan.jpg">
         <div class="mission-text">
         <h3>Our Mission</h3>
         <p>To provide exceptional construction services that exceed clients expectations through innovtion,quality craftsmanship, and a commitment to sustainablity. We aim to build lasting relationship and create spaces that enhance communities. We aim to create spaces that inspire and improve the lives of our clients and commmunities.Through precisions, expertise, and a customer-centric approach, we strive to exceed expectations in every projects. Our dedication to integrity and excellence drives us to build lasting relationships and a legacy o trust.</p>
@@ -649,7 +80,7 @@ function toggleMenu() {
     </div>
     
     <div class="vision">
-        <img class="laptop" src="./looking at laptop.jpg">
+        <img class="laptop" src="./assets/images/looking at laptop.jpg">
         <div class="vision-text">
         <h3>Our Vision</h3>
         <p>At Construct, our vision is to redefine the future of construction through innovtion, sustainablity and excellence. We aim to create structures that not inspire but also constitute to the well-being o communities and the environment. By embracing cutting-edge technology and eco-friendly practices, we strive to lead the industry toward a greater, smarter future. Our focus is on delivering value, quality, and longivity in every project we undertake. Together, we envision a world where construction empowers progress and transforms lives.</p>
@@ -661,7 +92,7 @@ function toggleMenu() {
         </div>
     </div>
      <div class="mission">
-        <img class="looking" src="./men looking.jpg">
+        <img class="looking" src="./assets/images/men looking.jpg">
         <div class="history-text">
         <h3>Our History</h3>
         <p>Founded on a commitment to quality and innovtion, Construct began as a small team with a big vision. Over the years, we have grown into a trusted name in the construction industry, delivering exceptional projects that stand the test of time. Our journey is marked by milestones of success, driven by passion and a dedication to excellence. From humble beginnings to industry leaders, we remain focused on building strong relationships and impactful spaces. Our history is the foundations of our future, inspiring us to keep raising the bar in construction</p>
@@ -680,7 +111,7 @@ function toggleMenu() {
             </p>
              <div class="video-section">
            
-            <video controls loop src="./videoblocks-an-aerial-view-of-a-busy-construction-site-on-a-dirty-puddly-ground-it-is-filled-with-construction-cranes-multi-storey-building-frames-and-metal-beams-there-is-a-misty-urbans.mp4">
+            <video controls loop src="./assets/videoblocks-an-aerial-view-of-a-busy-construction-site-on-a-dirty-puddly-ground-it-is-filled-with-construction-cranes-multi-storey-building-frames-and-metal-beams-there-is-a-misty-urbans.mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -701,7 +132,7 @@ function toggleMenu() {
 
   <div class="mySlides fade">
     <div class="numbertext"></div>
-    <img src="./slideshow one.jpg" style="width:100%">
+    <img src="./assets/images/slideshow one.jpg" style="width:100%">
     <div class="text"><h3 style="color: #ca4b4b; margin: 0;">Jenny Wilson</h3>
        <p> Marketing Coordinator</p>
     </div>
@@ -709,7 +140,7 @@ function toggleMenu() {
 
   <div class="mySlides fade">
     <div class="numbertext"></div>
-    <img src="./slideshow two.jpg" style="width:100%">
+    <img src="./assets/images/slideshow two.jpg" style="width:100%">
     <div class="text"><h3 style="color: #ca4b4b;">Darrell Steward</h3>
         <p> Marketing Coordinator</p>
        
@@ -718,14 +149,14 @@ function toggleMenu() {
 
   <div class="mySlides fade">
     <div class="numbertext"></div>
-    <img src="./slideshow three.jpg" style="width:100%">
+    <img src="./assets/images/slideshow three.jpg" style="width:100%">
     <div class="text"> <h3 style="color: #ca4b4b;"> Darlene Robertson</h3>
         <p>Marketing Coordinator</p>
     </div>
   </div>
   <div class="mySlides fade">
     <div class="numbertext"></div>
-    <img src="./slideshow four.jpg" style="width:100%">
+    <img src="./assets/images/slideshow four.jpg" style="width:100%">
     <div class="text"><h3 style="color: #ca4b4b;">Jane Cooper</h3> 
     <p>Marketing Coordinator</p>
     </div>
@@ -743,37 +174,12 @@ function toggleMenu() {
   <span class="dot" onclick="currentSlide(3)"></span>
     <span class="dot" onclick="currentSlide(4)"></span>
 </div>
-<script>let slideIndex = 1;
-showSlides(slideIndex);
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}</script>
     <div class="work">
             <h3>Why Say Our Customers</h3>
             <p>Our clients trust us for our reliability, attention to detail, and dedication to delivering projects on time and within budget. Hear rom those who have experienced the quality and professionalism that sets us apart in the construction industry.
             </p>
 </main>
+<script src="js/main.js"></script>
 </body>
 </html>
