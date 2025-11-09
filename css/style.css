@@ -3,6 +3,8 @@
   --accent: #f24c23;
   --light: #f4f4f4;
   --dark: #222;
+  --sub-title: 2em;
+  --tertiary: #8a8a8a;
 }
 
 body {
@@ -31,7 +33,7 @@ header {
   color: #222;
   text-align: center;
 }
-img {
+.logo img {
   height: 50px;
   margin: 0;
   border-radius: 20px;
@@ -49,24 +51,46 @@ img {
 main {
   max-width: 1024px;
   margin: auto;
+  padding: 1em;
 }
 .home {
-  margin-top: 5em;
   color: #919191;
   margin-left: 1em;
 }
 
-.intro {
-  margin-left: 1em;
-}
 h2 {
   font-size: 2.45em;
 }
 span {
   color: #f24c23;
 }
+.intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  margin-top: 7em;
+}
+
+.intro-text h2,
+.intro-text p {
+  margin: 0;
+  padding: 0;
+}
+.intro-text {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 1em;
+}
+
+.intro-text p {
+  color: var(--tertiary);
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 1.6;
+}
 .constworkers {
-  width: 90%;
   height: auto;
   border-radius: 20px;
   margin-top: 1em;
@@ -76,10 +100,174 @@ span {
   color: #333;
   text-align: center;
   align-items: center;
-  font-size: 1em;
+  font-size: 1.6em;
+  font-weight: 200;
   padding: 1em 2.5em;
+  margin-top: 2em;
+  font-style: italic;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 2rem;
+  padding: 1em;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 2em 0;
+}
+
+.stat {
+  background-color: var(--light);
+  padding: 1.5em 1em;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.stat .number {
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.25em;
+}
+
+.stat .label {
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--tertiary);
+}
+.mission {
+  margin-top: 5em;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2em;
+  align-items: center;
+  width: 100%;
+  padding: 1em;
+}
+
+.mission-img-con {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  height: 100%;
+}
+
+.mission-img-main {
+  width: 80%;
+  height: auto;
+  border-radius: 20px;
+  margin-top: 1em;
+  display: block;
+  object-fit: cover;
+}
+
+.mission-con-sub {
+  position: absolute;
+  bottom: 20px;
+  right: 0px;
+  width: 250px;
+  border-radius: 20px;
+  padding: 1em;
+  background-color: #fff;
+}
+.mission-img-sub {
+  border-radius: 20px;
+  object-fit: contain;
+  height: auto;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.mission-img-sub:hover {
+  transform: scale(1.05);
+}
+
+.mission-text {
+  margin-left: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1em;
+}
+
+.mission-text h3 {
+  font-size: 1.8rem;
+  color: #14304e;
   margin: 0;
 }
+
+.mission-text p {
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.mission-text ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mission-text li {
+  position: relative;
+  padding-left: 1.5em;
+  margin-bottom: 0.5em;
+  color: #555;
+}
+
+.mission-text li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #fbc151;
+  font-weight: bold;
+}
+
+.mission-text h3,
+.mission-text p {
+  margin: 0;
+  padding: 0;
+}
+
+.mission-text h3 {
+  font-size: var(--sub-title);
+  font-weight: 600;
+}
+.mission-text p {
+  color: var(--tertiary);
+  font-size: 16px;
+  font-weight: 200;
+}
+.mission ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 0;
+  padding: 0;
+}
+.mission li {
+  list-style-type: none;
+  width: 100%;
+}
+.mission li::before {
+  content: "✔";
+  color: green;
+  margin-right: 0.5em;
+}
+
 .features {
   display: flex;
   flex-direction: row;
@@ -90,62 +278,6 @@ span {
   margin-bottom: 0;
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem 1.5rem;
-  align-items: start;
-  padding: 1em;
-  width: 100%;
-  box-sizing: border-box;
-  text-align: center;
-}
-.stats-grid .stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5em 0.25em;
-}
-.stats-grid .number {
-  font-size: 2em;
-  font-weight: 800;
-  color: #14304e;
-  margin-bottom: 0.25em;
-}
-.stats-grid .label {
-  font-size: 0.95em;
-  color: #333;
-  font-weight: 600;
-}
-.building {
-  width: 90%;
-  height: auto;
-  border-radius: 20px;
-  margin-top: 1em;
-  object-fit: contain;
-  margin-left: 1em;
-}
-.mission-text {
-  padding: 0;
-}
-.mission li {
-  list-style-type: none;
-}
-.mission li::before {
-  content: "✔";
-  color: green;
-  margin-right: 0.5em;
-  margin-left: -1em;
-}
-.mission h3 {
-  margin-left: 1em;
-  font-size: 1.2em;
-  font-weight: 900;
-}
-.mission p {
-  margin-left: 1.4em;
-}
 .laptop {
   width: 90%;
   height: auto;
@@ -403,45 +535,39 @@ span {
     display: none;
   }
   .intro {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 2em;
-    margin: 1em;
+    grid-template-columns: 55% 45%;
+    gap: 0.5em;
   }
-  .intro p {
-    margin-left: -56em;
-    margin-top: -1em;
-    padding-right: 29em;
+
+  .intro-text {
+    width: 90%;
+
+    justify-content: center;
   }
-  h2 {
-    margin-left: 1em;
-    margin-bottom: 0;
+
+  .intro h2 {
+    font-size: 3em;
   }
-  .constworkers {
-    width: 27%;
-    margin-left: 39em;
-    margin-top: -5em;
+  .intro img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* border-radius: 20px; */
   }
+
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on medium+ screens */
+  }
+  .mission {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5em;
+  }
+
   .sub {
     font-size: 1.2em;
     padding: 1em;
   }
-  .building {
-    width: 35%;
-  }
-  .mission {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 2em;
-    margin: -0.9em;
-  }
-  .mission-text {
-    font-size: 1.2em;
-    margin-left: 7em;
-    margin-bottom: 0;
-  }
+
   .laptop {
     width: 27%;
     margin-left: 39em;
@@ -631,5 +757,24 @@ span {
 
   .book {
     display: none;
+  }
+  .intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .mission-text {
+    order: 1;
+  }
+
+  .mission-img-con {
+    order: 2;
   }
 }
