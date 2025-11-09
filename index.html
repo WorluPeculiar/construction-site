@@ -9,33 +9,53 @@
 </head>
 <body>
    <header>
-    
+  <nav>
     <div class="logo">
-        <button class="hamburger" aria-label="Open navigation" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <img src="./assets/images/download.jpg" alt="a construction helmet">
-        <span class="logo-text">Construct.org</span>
+      <img src="./assets/images/download.jpg" alt="a construction helmet" />
+      <span class="logo-text">Construct.org</span>
     </div>
-    <nav>
-        
-        <ul class="nav-list" id="navList">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Service</a></li>
-            <li><a href="#">Bing</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><button class="book">Book now</button></li>
-        </ul>
-    </nav>
-   </header>
+
+    <div class="nav-list-mobile">
+      <ul id="navList">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Service</a></li>
+        <li><a href="#">Bing</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><button class="book-mobile">Book now</button></li>
+      </ul>
+    </div>
+
+    <div class="nav-list">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Service</a></li>
+        <li><a href="#">Bing</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><button class="book-mobile">Book now</button></li>
+      </ul>
+    </div>
+
+    <button
+      class="hamburger"
+      aria-label="Open navigation"
+      onclick="toggleMenu()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <button class="book">Book now</button>
+  </nav>
+</header>
+
 
 <main>
-    <h3 class="home">
-        [Home/<span>About</span>]
-    </h3>
+    <p class="home">
+        [Home / <span style="color: #FBC151;">About</span>]
+    </p>
     <h2>Crafting Excellence Together</h2>
     <div class="intro" >
         
@@ -45,7 +65,7 @@
     
     <div class="aboutus">
         <h4 class="sub-about">At Construct we are committed to revolutionizing the construction industry with innovative, sustainable, and cost-effective solutions. With state-of-the-art technology,<span style="color:#585757">skilled expertise, and customer-centric approaches to bring visions to life.</span></h4>
-        <div class="containers stats-grid">
+        <!-- <div class="containers stats-grid">
            <div class="stat">
                <div class="number">150+</div>
                <div class="label">Complete Projects</div>
@@ -62,7 +82,7 @@
                <div class="number">30+</div>
                <div class="label">Winning Award</div>
            </div>
-        </div>
+        </div> -->
 
     </div>
     <div class="mission">

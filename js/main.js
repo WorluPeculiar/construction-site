@@ -2,9 +2,21 @@ let slideIndex = 1;
 showSlides(slideIndex);
 
 function toggleMenu() {
-  const navList = document.getElementById("navList");
-  navList.classList.toggle("open");
+  const hamburger = document.querySelector(".hamburger");
+  const mobileMenu = document.querySelector(".nav-list-mobile ul");
+
+  hamburger.classList.toggle("active");
+  mobileMenu.classList.toggle("open");
 }
+
+document.querySelectorAll(".nav-list-mobile a").forEach((link) => {
+  link.addEventListener("click", () => {
+    const hamburger = document.querySelector(".hamburger");
+    const mobileMenu = document.querySelector(".nav-list-mobile ul");
+    hamburger.classList.remove("active");
+    mobileMenu.classList.remove("open");
+  });
+});
 
 function plusSlides(n) {
   showSlides((slideIndex += n));

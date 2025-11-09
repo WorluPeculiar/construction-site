@@ -1,19 +1,23 @@
+:root {
+  --primary: #fbc151;
+  --accent: #f24c23;
+  --light: #f4f4f4;
+  --dark: #222;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   padding: 0;
   box-sizing: border-box;
-  background: #f4f4f4;
+  background: #fff;
   display: flex;
   flex-direction: column;
 }
 header {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  padding: 0.5em 1em;
   background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  border-bottom: 1px solid #ccc;
 }
 .logo {
   display: flex;
@@ -22,8 +26,8 @@ header {
   margin-bottom: 1em;
 }
 .logo-text {
-  font-size: 2em;
-  font-weight: bold;
+  font-size: 1.2em;
+  font-weight: 700;
   color: #222;
   text-align: center;
 }
@@ -32,88 +36,22 @@ img {
   margin: 0;
   border-radius: 20px;
 }
-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  position: relative;
-  gap: 0;
-}
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: none;
-  border: none;
-  cursor: pointer;
 
-  margin-bottom: 0.5em;
-}
-.hamburger span {
-  height: 4px;
-  width: 20px;
-  background: #333;
-  margin: 4px 0;
-  border-radius: 2px;
-  display: block;
-}
-nav ul {
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  background: #fff;
-  max-height: 0;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: max-height 0.3s ease;
-  position: absolute;
-  top: 3.5em;
-  left: 0;
-  z-index: 1;
-}
-nav ul.open {
-  max-height: 400px;
-}
-nav li {
+.nav-list li {
   list-style: none;
-  margin: 1em 0;
-  text-align: center;
-}
-nav a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-nav a:hover {
-  color: #f4f4f4;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  background-color: #919191;
-  border-radius: 5px;
-}
-.book {
-  background-color: #14304e;
-  color: rgb(10, 10, 10);
-  border: none;
-  padding: 0.5em 1em;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  margin: 1em auto 0 auto;
-  display: block;
-  width: 60%;
 }
 .book:hover {
   background-color: #919191;
   color: #f4f4f4;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
+
+main {
+  max-width: 1024px;
+  margin: auto;
+}
 .home {
+  margin-top: 5em;
   color: #919191;
   margin-left: 1em;
 }
@@ -390,45 +328,79 @@ span {
   }
 }
 
-@media (min-width: 601px) {
+/* desktop */
+@media (min-width: 1000px) {
   body {
-    max-width: 1024px;
+    /* max-width: 1024px; */
     margin: 0 auto;
   }
   header {
+    box-shadow: none;
+    background-color: #fff;
+
+    width: 100%;
+  }
+
+  nav {
+    display: flex;
+    max-width: 1024px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 0.5em 2em;
+    margin: auto;
+    width: 100%;
   }
+
   .logo {
     margin-bottom: 0;
   }
-  nav {
-    flex-direction: row;
-    align-items: center;
-    position: static;
-    gap: 1em;
-  }
+
   .hamburger {
     display: none;
   }
-  nav ul {
+  .nav-list ul {
     display: flex;
     flex-direction: row;
     position: static;
     max-height: none;
-    width: auto;
+    /* width: auto; */
     background: none;
     box-shadow: none;
     overflow: visible;
   }
-  nav li {
-    margin: 0 1.5em;
+  .nav-list-mobile ul {
+    display: none;
+  }
+  .nav-list ul li a {
+    text-decoration: none;
+    color: #222;
+    padding: 0.5em 1em;
+    display: inline-block;
+  }
+
+  .nav-list ul li a:hover {
+    color: var(--primary);
+    border-bottom: var(--primary) 1px solid;
+  }
+
+  /* Remove blue border/outline on click */
+  .nav-list ul li a:focus,
+  .nav-list ul li a:active {
+    outline: none;
+    border: none;
   }
   .book {
     margin: 0 0 0 1em;
-    width: 100%;
+    width: fit-content;
+    border-radius: 20px;
+    color: #fff;
+    background-color: var(--dark);
+    font-weight: 500;
+    font-size: 12px;
+    padding: 0.5em 1em;
+  }
+  .book-mobile {
+    display: none;
   }
   .intro {
     display: flex;
@@ -538,5 +510,126 @@ span {
   .sub button {
     margin: 0;
     white-space: nowrap;
+  }
+}
+
+/* mobile */
+@media (max-width: 769px) {
+  header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); */
+  }
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* width: 40px;
+    height: 40px; */
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+  }
+
+  .hamburger span {
+    height: 2px;
+    width: 24px;
+    background: #333;
+    margin: 3px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Animate hamburger into an "X" when active */
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-list-mobile ul {
+    list-style: none;
+    flex-direction: column;
+    width: 90%;
+    background: #fff;
+    max-height: 0;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: max-height 0.4s ease;
+    position: absolute;
+    top: 4.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15;
+    border-radius: 8px;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  /* Open state animation */
+  .nav-list-mobile ul.open {
+    display: flex;
+    max-height: 400px;
+    opacity: 1;
+    visibility: visible;
+    padding: 0.5em 1em;
+  }
+
+  .nav-list-mobile li {
+    margin: 1em 0;
+    text-align: center;
+  }
+
+  .nav-list-mobile a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: background 0.3s ease, color 0.3s ease;
+    padding: 0.5em 0.8em;
+    border-radius: 5px;
+    display: inline-block;
+  }
+
+  .nav-list-mobile a:hover {
+    background-color: #333;
+    color: #fff;
+  }
+
+  .book-mobile {
+    width: 100%;
+    background-color: var(--dark);
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 12px;
+    padding: 1em 0;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 0.5em;
+  }
+
+  .nav-list {
+    display: none;
+  }
+
+  .book {
+    display: none;
   }
 }
